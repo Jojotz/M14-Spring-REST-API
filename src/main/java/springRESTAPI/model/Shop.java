@@ -14,12 +14,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "shop")
+@Table(name = "Shop")
 public class Shop {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)	
-	private long shopId;
+	private Long shopId;
 	
 	@Column (name = "shop_name")
 	private String shopName;
@@ -27,27 +27,25 @@ public class Shop {
 	@Column (name = "shop_capacity")
 	private int shopCapacity;
 	
-	@OneToMany (cascade = CascadeType.ALL)
-	@JoinColumn(name = "shoppicture_fid", referencedColumnName = "shopId")
-	List<Picture> pictures = new ArrayList<>();
+	@OneToMany (mappedBy="shop", cascade = CascadeType.ALL, orphanRemoval=true)
+	private List<Picture> pictures = new ArrayList<>();
 	
 	public Shop() {
 		
 	}  
 	
-	public Shop(String shopName, int shopCapacity) {
-		super();
+	public Shop(Long shopId, String shopName, int shopCapacity) {
+		this.shopId=shopId;
 		this.shopName = shopName;
 		this.shopCapacity = shopCapacity;
 	}
 
 	
-
-	public long getShopId() {
+	public Long getShopId() {
 		return shopId;
 	}
 
-	public void setShopId(long shopId) {
+	public void setShopId(Long shopId) {
 		this.shopId = shopId;
 	}
 

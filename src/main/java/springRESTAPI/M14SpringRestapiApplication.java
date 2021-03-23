@@ -1,22 +1,22 @@
 package springRESTAPI;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import springRESTAPI.model.Picture;
-import springRESTAPI.model.Shop;
-import springRESTAPI.repository.ShopRepository;
+//import springRESTAPI.model.Picture;
+//import springRESTAPI.model.Shop;
+//import springRESTAPI.repository.ShopRepository;
 
 @SpringBootApplication
-public class M14SpringRestapiApplication implements CommandLineRunner {
+public class M14SpringRestapiApplication { //implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(M14SpringRestapiApplication.class, args);
 	}
 
-	@Autowired
+/*	@Autowired
 	private ShopRepository shopRepository;
 	
 	@Override
@@ -33,6 +33,6 @@ public class M14SpringRestapiApplication implements CommandLineRunner {
 		shop.getPictures().add(picture3);
 		
 		this.shopRepository.save(shop);
-	}
-
+	}  
+*/
 }

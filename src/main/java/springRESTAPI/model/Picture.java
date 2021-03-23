@@ -5,15 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "picture")
+@Table (name = "Picture")
 public class Picture {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private long pictureId;
+	private Long pictureId;
 	
 	@Column (name = "picture_name")
 	private String pictureName;
@@ -27,22 +29,26 @@ public class Picture {
 	@Column (name = "picture_date")
 	private String pictureDate;
 	
+	@ManyToOne
+	@JoinColumn(name ="shop_id", nullable=false)
+	private Shop shop;
+	
 	public Picture() {
 		
 	}
 	
-	public Picture(String pictureName, String pictureAuthor, double picturePrice, String pictureDate) {
-		super();
+	public Picture(Long pictureId, String pictureName, String pictureAuthor, double picturePrice, String pictureDate) {
+		this.pictureId = pictureId;
 		this.pictureName = pictureName;
 		this.pictureAuthor = pictureAuthor;
 		this.picturePrice = picturePrice;
 		this.pictureDate = pictureDate;
 	}
 	
-	public long getPictureId() {
+	public Long getPictureId() {
 		return pictureId;
 	}
-	public void setPictureId(long pictureId) {
+	public void setPictureId(Long pictureId) {
 		this.pictureId = pictureId;
 	}
 	public String getPictureName() {
@@ -68,5 +74,14 @@ public class Picture {
 	}
 	public void setPictureDate(String pictureDate) {
 		this.pictureDate = pictureDate;
+	}
+
+	public Shop getShop() {
+		return shop;
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
 	}	
+	
 }

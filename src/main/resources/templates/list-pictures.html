@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org ">
+<head>
+<meta charset="utf-8">
+<title>List of all the pictures in a shop</title>
+</head>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<body>
+	<div class="container text-center"> 
+		<div><h1>Picture List</h1> </div>
+		<div>
+			<table class="table table-bordered">
+				<thead class="thead-dark">
+					<tr>
+						<th> Id </th>
+						<th> Picture Name </th>
+						<th> Author </th>
+						<th> Price </th>
+						<th> Date </th>
+						<th> Shop Name </th>
+					</tr>				
+				</thead>
+				<tbody>
+					<th:block th:each="picture : ${listPictures}">
+					<tr>
+						<td>[[${picture.pictureId}]]</td>
+						<td>[[${picture.pictureName}]]</td>
+						<td>[[${picture.pictureAuthor}]]</td>
+						<td>[[${picture.picturePrice}]]</td>
+						<td>[[${picture.pictureDate}]]</td>
+						<td>[[${picture.shop.shopName}]]</td>
+					</tr>
+					</th:block> 
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="container text-center">
+		<a class="h2" th:href="@{/home}">Go Back to home page</a>
+	</div>
+</body>
+</html>

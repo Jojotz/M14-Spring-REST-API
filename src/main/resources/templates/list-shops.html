@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org ">
+<head>
+<meta charset="utf-8">
+<title>List of all the shops</title>
+</head>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<body>
+	<div class="container text-center"> 
+		<div><h1>Shops List</h1> </div>
+		<div>
+			<table class="table table-bordered">
+				<thead class="thead-dark">
+					<tr>
+						<th> Id </th>
+						<th> Shop Name </th>
+						<th> Shop Capacity </th>
+					</tr>				
+				</thead>
+				<tbody>
+					<th:block th:each="shop : ${listShops}">
+					<tr>
+						<td>[[${shop.shopId}]]</td>
+						<td>[[${shop.shopName}]]</td>
+						<td>[[${shop.shopCapacity}]]</td>
+						<td>
+							<a th:href="@{'/shops/pictures/' + ${shop.shopId}}">View Pictures</a>
+						</td>
+						<td>
+							<a th:href="@{'/shops/delete/' + ${shop.shopId}}">Delete</a>
+						</td>
+					</tr>
+					</th:block> 
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="container text-center">
+		<a class="h2" th:href="@{/home}">Go Back to home page</a>
+	</div>
+</body>
+</html>
