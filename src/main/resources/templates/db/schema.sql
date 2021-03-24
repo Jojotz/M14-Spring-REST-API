@@ -1,5 +1,3 @@
-USE `whitecollar`;
-
 DROP TABLE IF EXISTS `Shop`;
 
 CREATE TABLE IF NOT EXISTS `Shop` (
