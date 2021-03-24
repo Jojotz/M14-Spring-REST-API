@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.RestController;
 
 import springRESTAPI.exceptions.RecordNotFoundException;
 import springRESTAPI.model.Picture;
@@ -24,11 +25,9 @@ public class ShopController {
 	@Autowired
 	private ShopService service;
 	
+	//Goes back to index.html
 	@GetMapping ("/home")
-	public String goBackHome(Model model) {
-			
-		//List<Shop> listShops = service.getAllShops();		
-		//model.addAttribute ("listShops", listShops);		
+	public String goBackHome(Model model) {	
 		return "index";
 	} 	
 	
@@ -74,11 +73,11 @@ public class ShopController {
 	
 	//Creates a picture
 	@PostMapping("/shops/{ID}/pictures")
-	public String createPicture (Picture picture) {
+	public String createPicture (Model model, Picture picture) {
 			
 		service.createPicture(picture);
-		//List<Picture> listPictures = service.getAllPictures(shopId);
-		//model.addAttribute("listPictures", listPictures);
+		List<Picture> listPictures = service.getAllPictures();
+		model.addAttribute("listPictures", listPictures);
 		return "list-pictures";
 	}
 	//-------

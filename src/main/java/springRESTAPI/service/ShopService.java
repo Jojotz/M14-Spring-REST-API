@@ -21,6 +21,7 @@ public class ShopService {
 	@Autowired
 	ShopRepository shopRepository;
 	
+	//Gets all Shops
 	public List<Shop> getAllShops() {
 		
 		List<Shop> result = (List<Shop>) shopRepository.findAll();
@@ -29,6 +30,18 @@ public class ShopService {
 			return result;			
 		} else {			
 			return new ArrayList<Shop>();			
+		}		
+	}
+	
+	//Gets all Pictures
+	public List<Picture> getAllPictures() {
+		
+		List<Picture> result = (List<Picture>) pictureRepository.findAll();
+		
+		if (result.size() > 0) {			
+			return result;			
+		} else {			
+			return new ArrayList<Picture>();			
 		}		
 	}
 	

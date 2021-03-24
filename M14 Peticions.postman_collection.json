@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "f3c3283f-01b7-4d38-8b59-aa672d45d373",
+		"name": "M14 Peticions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Goes back to home page (index)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080//home",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"",
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gets a list of all the shops",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/shops",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Brings up the \"Create new shop\" form",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/shops/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creates a New Shop",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "shopName",
+							"value": "Mandonguilla",
+							"type": "text"
+						},
+						{
+							"key": "shopCapacity",
+							"value": "5",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/shops/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Brings us to \"create a new picture\" form",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/pictures/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pictures",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creates a new picture",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "pictureName",
+							"value": "Las Malvas Lilas",
+							"type": "text"
+						},
+						{
+							"key": "pictureAuthor",
+							"value": "Grixis Delver",
+							"type": "text"
+						},
+						{
+							"key": "picturePrice",
+							"value": "7500",
+							"type": "text"
+						},
+						{
+							"key": "pictureDate",
+							"value": "2021-03-17",
+							"type": "text"
+						},
+						{
+							"key": "shop.shopId",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/shops/{ID}/pictures",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						"{ID}",
+						"pictures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gets all the pictures by Id shop",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/shops/pictures/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						"pictures",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletes a shop and all the pictures inside by shop Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/shops/delete/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shops",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
